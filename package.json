@@ -1,6 +1,6 @@
 {
   "name": "gpstime",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some GPS time-related utilities.",
   "main": "lib/index.js",
   "scripts": {
