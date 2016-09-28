@@ -8,6 +8,15 @@
     "cover": "istanbul cover node_modules/.bin/_mocha -- -R spec",
     "build": "babel src -d lib"
   },
+  "bin": {
+    "current-gps-wn-tow": "lib/cli.js",
+    "utc-to-wn-tow": "lib/cli.js",
+    "gps-to-wn-tow": "lib/cli.js",
+    "wn-tow-to-utc": "lib/cli.js",
+    "wn-tow-to-gps": "lib/cli.js",
+    "utc-to-gps": "lib/cli.js",
+    "gps-to-utc": "lib/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/swift-nav/gpstime.git"
