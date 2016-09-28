@@ -20,6 +20,23 @@ This library has utilities for converting UTC and GPS-relative `Date` objects to
 * `utc-to-gps` accepts a single argument, an ISO8601-formatted UTC date string, and returns an ISO8601-formatted GPS-relative date string.
 * `gps-to-utc` accepts a single argument, an ISO8601-formatted GPS-relative date string, and returns an ISO8601-formatted UTC date string.
 
+## Examples
+
+```
+$ current-gps-wn-tow
+1916 327239.06999993324
+$ utc-to-wn-tow 2016-09-28T18:43:25.208Z
+1916 326622.2079999447
+$ gps-to-wn-tow 2016-09-28T18:43:25.208Z
+1916 326605.2079999447
+$ utc-to-gps 2016-09-28T18:43:25.208Z
+2016-09-28T18:43:42.208Z
+$ utc-to-gps 2016-09-28T18:43:25.208Z
+2016-09-28T18:43:42.208Z
+$ gps-to-utc 2016-09-28T18:43:25.208Z
+2016-09-28T18:43:08.208Z
+```
+
 # Functions
 
 The following functions are available:
