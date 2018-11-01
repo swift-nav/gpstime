@@ -9,6 +9,7 @@
     "build": "babel src -d lib"
   },
   "bin": {
+    "utc-to-wn-dow": "lib/cli.js",
     "current-gps-wn-tow": "lib/cli.js",
     "utc-to-wn-tow": "lib/cli.js",
     "gps-to-wn-tow": "lib/cli.js",

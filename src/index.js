@@ -15,6 +15,8 @@ const gpsEpochSeconds = 315964800;
 // number of seconds in a week
 const weekSeconds = (60 * 60 * 24 * 7);
 
+const daySeconds = (60 * 60 * 24);
+
 // Leap UTC leap seconds since epoch (1970). UTC/GPS/Unix epoch starts with
 // a +10 leap second offset relative to TAI. There are UTC 10 leap seconds before
 // the first GPS time (not listed here).
@@ -45,13 +47,14 @@ const gpsLeapSeconds = [
  * If you have a UTC timestamp, use `utcTimestampToWnTow`.
  *
  * @param {Date} gpsTimestamp - A timestamp representing a GPS timestamp, without leap-seconds.
- * @return {object} { wn, tow }
+ * @return {object} { wn, dow, tow }
  */
 export function gpsTimestampToWnTow (gpsTimestamp) {
   const gpsTimeMs = (gpsTimestamp.getTime() / 1000) - gpsEpochSeconds;
   const wn = Math.floor(gpsTimeMs / weekSeconds);
   const tow = gpsTimeMs - (wn * weekSeconds);
-  return { wn, tow };
+  const dow = Math.floor(tow / daySeconds)
+  return { wn, dow, tow };
 }
 
 /**

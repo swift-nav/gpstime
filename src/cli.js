@@ -14,6 +14,7 @@
 import * as utils from './index';
 
 const modes = [
+  "utc-to-wn-dow",
   "current-gps-wn-tow",
   "utc-to-wn-tow",
   "gps-to-wn-tow",
@@ -60,6 +61,7 @@ const argTypeNames = [
 ];
 
 const modeFns = [
+  utils.utcTimestampToWnTow,
   utils.currentGpsWnTow,
   utils.utcTimestampToWnTow,
   utils.gpsTimestampToWnTow,
@@ -112,6 +114,10 @@ parsedArgs.forEach(arg => {
 
 const result = modeFns[mode](...parsedArgs);
 
+if (modes[mode] == 'utc-to-wn-dow') {
+  console.log(result.wn, result.dow);
+  process.exit(0);
+}
 if ("wn" in result && "tow" in result) {
   console.log(result.wn, result.tow);
   process.exit(0);
