@@ -51,14 +51,14 @@ describe('gps timestamps to wn/tow', () => {
   it('should convert epoch date to 0, 0', () => {
     const timestamp = new Date('1980-01-06T00:00:00.000Z');
     const actual = timeUtils.gpsTimestampToWnTow(timestamp);
-    const expected = { wn: 0, tow: 0 };
+    const expected = { wn: 0, dow: 0, tow: 0 };
 
     assert.deepEqual(actual, expected);
   });
   it('should convert more recent time', () => {
     const timestamp = new Date('2000-08-07T04:17:05.000Z');
     const actual = timeUtils.gpsTimestampToWnTow(timestamp);
-    const expected = { wn: 1074, tow: 101825 };
+    const expected = { wn: 1074, dow: 1, tow: 101825 };
 
     assert.deepEqual(actual, expected);
   });
@@ -68,14 +68,14 @@ describe('utc timestamps to wn/tow', () => {
   it('should convert epoch date to 0, 0', () => {
     const timestamp = new Date('1980-01-06T00:00:00.000Z');
     const actual = timeUtils.utcTimestampToWnTow(timestamp);
-    const expected = { wn: 0, tow: 0 };
+    const expected = { wn: 0, dow: 0, tow: 0 };
 
     assert.deepEqual(actual, expected);
   });
   it('should convert more recent time', () => {
     const timestamp = new Date('2000-08-07T04:17:05.000Z');
     const actual = timeUtils.utcTimestampToWnTow(timestamp);
-    const expected = { wn: 1074, tow: 101838 };
+    const expected = { wn: 1074, dow: 1, tow: 101838 };
 
     assert.deepEqual(actual, expected);
   });
@@ -83,12 +83,13 @@ describe('utc timestamps to wn/tow', () => {
 
 describe('get current wn/tow', () => {
   it('should get current week number and tow', () => {
-    const { wn, tow } = timeUtils.currentGpsWnTow();
-    const { wn: expectedWn, tow: expectedTow } = timeUtils.utcTimestampToWnTow(new Date());
+    const { wn, dow, tow } = timeUtils.currentGpsWnTow();
+    const { wn: expectedWn, dow: expectedDow, tow: expectedTow } = timeUtils.utcTimestampToWnTow(new Date());
 
     assert(wn >= 1916);
 
     assert.equal(wn, expectedWn);
+    assert.equal(dow, expectedDow);
     assert.equal(tow, expectedTow);
   });
 });
