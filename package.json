@@ -1,6 +1,6 @@
 {
   "name": "gpstime",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "Some GPS time-related utilities.",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "build": "babel src -d lib"
   },
   "bin": {
+    "utc-to-wn-dow": "lib/cli.js",
     "current-gps-wn-tow": "lib/cli.js",
     "utc-to-wn-tow": "lib/cli.js",
     "gps-to-wn-tow": "lib/cli.js",
@@ -26,6 +27,7 @@
     "time",
     "utc",
     "tow",
+    "dow",
     "week",
     "number",
     "wn",

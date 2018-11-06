@@ -13,6 +13,7 @@ This library has utilities for converting UTC and GPS-relative `Date` objects to
 `gpstime` also comes with a few handy CLI tools:
 
 * `current-gps-wn-tow` returns the current week number and TOW.
+* `utc-to-wn-dow` accepts a single argument, an ISO8601-formatted UTC date string, and returns the corresponding week number and DOW, which is the day of week. starting from zero.
 * `utc-to-wn-tow` accepts a single argument, an ISO8601-formatted UTC date string, and returns the corresponding week number and TOW.
 * `gps-to-wn-tow` accepts a single argument, an ISO8601-formatted GPS-relative date string, and returns the corresponding week number and TOW.
 * `wn-tow-to-utc` accepts a week number and TOW, and returns an ISO8601-formatted date string representing the UTC time.
@@ -41,13 +42,13 @@ $ gps-to-utc 2016-09-28T18:43:25.208Z
 
 The following functions are available:
 
-* `utcTimestampToWnTow` - takes a `Date` object and returns GPS time as `{ wn, tow }` dictionary.
-* `gpsTimestampToWnTow` - takes a `Date` object and returns GPS time as `{ wn, tow }` dictionary. Assumes that this object is in GPS time, without accounting for leap seconds.
+* `utcTimestampToWnTow` - takes a `Date` object and returns GPS time as `{ wn, dow, tow }` dictionary.
+* `gpsTimestampToWnTow` - takes a `Date` object and returns GPS time as `{ wn, dow, tow }` dictionary. Assumes that this object is in GPS time, without accounting for leap seconds.
 * `wnTowToUtcTimestamp` - takes a GPS week number and TOW, and returns a `Date` object in UTC time, with leap-seconds accounted.
 * `wnTowToGpsTimestamp` - takes a GPS week number and TOW, and returns a `Date` object in GPS-relative time, without leap-seconds accounted.
 * `utcTimestampToGpsTimestamp` - takes a UTC timestamp and removes leap-seconds from it, returning a GPS-relative timestamp.
 * `gpsTimestampToUtcTimestamp` - takes a GPS timestamp and adds leap-seconds from it, returning a UTC timestamp.
-* `currentGpsWnTow` - convenience function that returns the current time as `{ wn, tow }`.
+* `currentGpsWnTow` - convenience function that returns the current time as `{ wn, dow, tow }`.
 
 # Install
 
