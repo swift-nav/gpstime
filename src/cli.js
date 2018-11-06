@@ -41,6 +41,7 @@ function strictParseInt (s) {
 }
 
 const argTypes = [
+  [iso8601],
   [],
   [iso8601],
   [iso8601],
@@ -51,6 +52,7 @@ const argTypes = [
 ];
 
 const argTypeNames = [
+  ['iso8601'],
   [],
   ['iso8601'],
   ['iso8601'],
