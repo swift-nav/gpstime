@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env -S node --harmony
 
 /**
  * Copyright (C) 2016 Swift Navigation Inc.
